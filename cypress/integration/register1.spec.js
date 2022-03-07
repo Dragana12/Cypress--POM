@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
-import {registerPage} from '../../POMfolder/registerPom.js'
+
+import { registerPg } from '../POMfolder/registerPom.js'
+import { navigation } from '../POMfolder/navigation.js'
 
 describe("registration test", () => {
 
@@ -7,60 +9,14 @@ describe("registration test", () => {
       cy.visit('/register');
     })
   
-    it("register without first name", () => {
-      cy.get(Register.lastName).type("prezime");
-      cy.get(Register.emailField).type("test+@mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345!");
-      cy.get(Register.checkbox).check();
-      cy.get(Register.submitBtn).click();
+    it ("register without first name", () => {
+      registerPg.lastName('Pjescic');
+      registerPg.email('mila125@gmail.com');
+      registerPg.password('test1234');
+      registerPg.passwordConfirmation('test1234');
+      navigation.checkBox.click();
+      navigation.button.click();
+
     });
-  
-    it("register without last name", () => {
-      cy.get(Register.firstName).type("ime");
-      cy.get(Register.emailField).type("test+@mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345!");
-      cy.get(Register.checkbox).check();
-      cy.get(Register.submitBtn).click();
-    });
-  
-    it("register with invalid email", () => {
-      cy.get("#first-name").type("ime");
-      cy.get(Register.lastName).type("prezime");
-      cy.get(Register.emailField).type("test+mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345!");
-      cy.get(Register.checkbox).check();
-      cy.get(Register.submitBtn).click();
-    });
-  
-    it("register with invalid password confirmation", () => {
-      cy.get("#first-name").type("ime");
-      cy.get(Register.lastName).type("prezime");
-      cy.get(Register.emailField).type("test+@mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345");
-      cy.get(Register.checkbox).check();
-      cy.get(Register.submitBtn).click();
-    });
-  
-    it("register withhout checking terms and conditions", () => {
-      cy.get("#first-name").type("ime");
-      cy.get(Register.lastName).type("prezime");
-      cy.get(Register.emailField).type("test+@mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345!");
-      cy.get(Register.submitBtn).click();
-    });
-  
-    it("register with valid data", () => {
-      cy.get("#first-name").type("ime");
-      cy.get(Register.lastName).type("prezime");
-      cy.get(Register.emailField).type("test+@mail.com");
-      cy.get(Register.passwordField).type("Test12345!");
-      cy.get(Register.passwordConfirmation).type("Test12345!");
-      cy.get(Register.checkbox).check();
-      cy.get(Register.submitBtn).click();
-    });
+
   });

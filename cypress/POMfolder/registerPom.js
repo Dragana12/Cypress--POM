@@ -1,4 +1,4 @@
-export default class registerPage {
+class RegisterPg {
 
     get firstName() {
         return cy.get('#first-name');
@@ -23,7 +23,7 @@ export default class registerPage {
         return cy.get('button');
     }
 
-    register (firstName, lastName) {
+    register () {
         this.firstName.type (firstName);
         this.lastName.type (lastName);
         this.email.type(email);
@@ -34,5 +34,5 @@ export default class registerPage {
       }
 }
 
-export const registerPage = new registerPage ();
+export const registerPg = new RegisterPg ();
     
