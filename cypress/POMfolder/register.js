@@ -23,13 +23,13 @@ class RegisterPg {
         return cy.get('button');
     }
 
-    register () {
+    register (firstName, lastName, email, password) {
         this.firstName.type (firstName);
         this.lastName.type (lastName);
         this.email.type(email);
         this.password.type(password);
-        this.passwordConfirmation.type(passwordConfirmation);
-        this.checkBox.check(checkBox);
+        this.passwordConfirmation.type(password);
+        this.checkBox.check();
         this.submitBtn.click();  
       }
 }
