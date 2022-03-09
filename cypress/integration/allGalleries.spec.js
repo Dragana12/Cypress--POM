@@ -38,7 +38,7 @@ it( 'Load more btn', () =>{
     allGalleriesPage.loadMoreBtn.should ('have.class', 'btn btn-custom');
 });
 
-it.only( 'Load more btn', () =>{
+it( 'Load more btn', () =>{
     allGalleriesPage.loadMoreBtn.should ('match', 'button');
 
 });
